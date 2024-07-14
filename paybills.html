@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Icons Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #FFB800;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-style: italic;
+        font-size: large;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+    }
+
+    .message {
+        font-size: 24px;
+        margin-right: 70px;
+        opacity: 0;
+        animation: moveIn 3s forwards;
+    }
+
+    .circle {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        animation: rotate 2s linear;
+    }
+
+    .icon {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        color: #000;
+    }
+
+    .icon:nth-child(1) {
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(2) {
+        top: 25%;
+        left: 85%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(3) {
+        top: 50%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(4) {
+        top: 75%;
+        left: 85%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(5) {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(6) {
+        top: 75%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(7) {
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+    }
+
+    .icon:nth-child(8) {
+        top: 25%;
+        left: 15%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes moveIn {
+        0% {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .circle:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        animation: stopRotate 0.001s linear forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        z-index: -1;
+    }
+
+    @keyframes stopRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="message">Pay bills Instantly</div>
+            <div class="circle">
+                <div class="icon phone"><i class="fas fa-phone"></i></div>
+                <div class="icon laptop"><i class="fas fa-laptop"></i></div>
+                <div class="icon twitter"><i class="fab fa-twitter"></i></div>
+                <div class="icon facebook"><i class="fab fa-facebook"></i></div>
+                <div class="icon home"><i class="fas fa-home"></i></div>
+                <div class="icon camera"><i class="fas fa-camera"></i></div>
+                <div class="icon lightbulb"><i class="fas fa-lightbulb"></i></div>
+                <div class="icon youtube"><i class="fab fa-youtube"></i></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
